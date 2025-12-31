@@ -440,48 +440,43 @@ https://templatemo.com/tm-528-elegance
 
             <!-- EmailJS -->
             <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
             <script>
-                // Inicializar EmailJS con la clave pública
-                emailjs.init("0IRkG1WG-wOlqSPCp"); // tu User ID
+emailjs.init("0IRkG1WG-wOlqSPCp");
 
-                // Agregar un listener para el envío del formulario
-                document.getElementById("contact-form").addEventListener("submit", function (event) {
-                    event.preventDefault(); // Evitar el comportamiento predeterminado del formulario
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault();
 
-                    // Enviar el formulario usando EmailJS
-                    emailjs.sendForm("service_2ka8ss9", "template_o7p6fkw", this) // Usar Service y Template ID
-                        .then(function (response) {
-                            // Si el formulario se envió correctamente
-                            alert("🎉 ¡Mensaje enviado con éxito!");
-                            document.getElementById("form-messages").innerHTML = "🎉 ¡Mensaje enviado con éxito!";
-                            document.getElementById("form-messages").classList.add("bg-success");
-                            // Limpiar el formulario
-                            document.getElementById("contact-form").reset();
-                        }, function (error) {
-                            // Si hay un error
-                            console.error("❌ Error:", error);
-                            document.getElementById("form-messages").innerHTML = "❌ Error al enviar el mensaje";
-                            document.getElementById("form-messages").classList.add("bg-danger");
-                        });
-                });
-            </script>
+    emailjs.sendForm("service_2ka8ss9", "template_o7p6fkw", this)
+    .then(() => {
+        document.getElementById("form-messages").innerHTML = "🎉 ¡Mensaje enviado con éxito!";
+        document.getElementById("form-messages").className = "bg-success";
+        this.reset(); // 🧽 Limpiar campos
+    })
+    .catch(() => {
+        document.getElementById("form-messages").innerHTML = "❌ Error al enviar.";
+        document.getElementById("form-messages").className = "bg-danger";
+    });
+});
+</script>
 
 
-            <div id="social-icons">
-                <div class="text-right">
-                    <ul class="social-icons">
-                        <li><a href="https://www.facebook.com/joshua.tapia.749565" title="Facebook"><i
-                                    class="fa fa-facebook"></i></a></li>
-                        <li><a href="https://x.com/joshuatapi01" title="Twitter"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="https://www.linkedin.com/in/joshua-fernando-tapia-osnayo-b21437274/"
-                                title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="https://www.instagram.com/josh_tapia10/" title="Instagram"><i
-                                    class="fa fa-behance"></i></a></li>
-                    </ul>
+           
+
+
+                <div id="social-icons">
+                    <div class="text-right">
+                        <ul class="social-icons">
+                            <li><a href="https://www.facebook.com/joshua.tapia.749565" title="Facebook"><i
+                                        class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://x.com/joshuatapi01" title="Twitter"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="https://www.linkedin.com/in/joshua-fernando-tapia-osnayo-b21437274/"
+                                    title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="https://www.instagram.com/josh_tapia10/" title="Instagram"><i
+                                        class="fa fa-behance"></i></a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
         </div>
 
         <script src="js/jquery.js"></script>
